@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy>=2.0
+pyodbc
+pydantic>=2
+pydantic-settings
+pandas
+numpy
+scipy
+anthropic
+apscheduler
+weasyprint
+jinja2
+python-dotenv
+alembic
+pytest
