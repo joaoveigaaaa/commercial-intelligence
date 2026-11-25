@@ -37,7 +37,7 @@ Em operações logísticas e de transporte, os vendedores e gestores perdem hora
 * **Alertas Inteligentes no Lugar de Mensagens:** O próprio sistema envia notificações dentro da conversa do cliente sempre que identifica uma mudança relevante de padrão (ex: *"Queda de 30% no faturamento comparado à média dos últimos 3 meses"* ou *"Cliente aumentou o volume de cargas nesta semana"*).
 * **Contexto Unificado:** Todo o histórico de alertas e anotações do vendedor sobre aquele cliente fica registrado em uma linha do tempo simples de ler.
 
-### 6. Assistente Comercial IA (Estilo Copilot)
+### 6. Assistente Comercial IA
 * **Experiência Conversacional Limpa:** Página dedicada no estilo do Microsoft Copilot, projetada para que qualquer membro do time comercial consiga analisar dados complexos apenas conversando em português natural.
 * **Perguntas e Respostas Imediatas:** O vendedor pode perguntar qualquer coisa sobre a base do Rodopar (ex: *"Quais clientes da minha carteira caíram este mês?"* ou *"Qual cliente teve o maior ticket médio nos últimos 90 dias?"*) e obter respostas diretas e precisas.
 * **Geração de Relatórios por Período Sob Demanda:** Basta pedir no chat um intervalo de datas específico (ex: *"Gere um relatório de desempenho entre 05/04 e 20/04"*) para que a IA compile e apresente os dados na hora.
