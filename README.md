@@ -6,7 +6,7 @@ Plataforma de **Inteligência Comercial e Business Intelligence (BI)** projetada
 
 **Facilitar as análises para o time comercial.**
 
-Em operações logísticas e de transporte, os vendedores e gestores perdem horas cruzando dados no ERP para entender o comportamento da carteira. Este sistema transforma **dados brutos do Rodopar em respostas imediatas, visualizações intuitivas e recomendações práticas**, permitindo que a equipe comercial invista seu tempo vendendo, retendo clientes e recuperando receitas — e não montando planilhas.
+Em operações logísticas e de transporte, os vendedores e gestores perdem horas cruzando dados no ERP para entender o comportamento da carteira. Este sistema transforma **dados brutos do Rodopar em respostas imediatas, visualizações intuitivas e recomendações práticas**, permitindo que a equipe comercial invista seu tempo vendendo, retendo clientes e recuperando receitas e não montando planilhas.
 
 ## Funcionalidades Principais
 
