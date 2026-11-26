@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inteligência Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#00447C;--verm:#D81920;--bg:#FFFFFF;--sf:#F4F6F9;--ln:#E2E7EE;--tx:#14202E;--mu:#5E6B7B;--br:#00447C;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1620;--sf:#16212D;--ln:#263445;--tx:#EAF0F6;--mu:#93A1B3;--br:#5AA6E8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1620;--sf:#16212D;--ln:#263445;--tx:#EAF0F6;--mu:#93A1B3;--br:#5AA6E8;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button{font:inherit;cursor:pointer;color:inherit}
+.app{display:flex;flex-direction:column;height:100%}
+.wrap{display:flex;flex:1;min-height:0}
+.hd{position:relative;height:60px;flex:none;background:#005A9E;color:#fff;display:flex;align-items:center;padding:0 20px;justify-content:flex-end;z-index:20}
+.hd::before{content:"";position:absolute;inset:0;background:url("data:image/webp;base64,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") left center/auto 100% no-repeat;-webkit-mask-image:linear-gradient(to bottom,#000 45%,transparent 100%);mask-image:linear-gradient(to bottom,#000 45%,transparent 100%)}
+.hd>*{position:relative}
+.pt{margin-left:20px;font-size:15px;font-weight:600;opacity:.9}
+.side{width:260px;flex:none;background:#005A9E;color:#fff;border-right:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;padding:14px 10px;gap:4px;overflow-y:auto}
+.logo{display:flex;align-items:center;gap:12px;width:220px;font-weight:700;font-size:18px;line-height:1.2;text-shadow:0 1px 6px rgba(0,40,80,.55)}
+.logo small{display:block;font-weight:400;font-size:12px;opacity:.85}
+.logo b{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff;color:#00447C;font-size:16px;flex:none;box-shadow:0 0 0 2px #D81920;text-shadow:none}
+nav a{display:flex;gap:14px;align-items:center;padding:12px 14px;border-radius:14px;color:#fff;text-decoration:none;font-weight:500;font-size:15.5px}
+nav a{--ibg:#005A9E}
+nav a.on{--ibg:#fff}
+nav a svg{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+nav a:hover{background:rgba(255,255,255,.13)}
+nav a.on{background:#fff;color:#00447C;box-shadow:0 4px 14px rgba(0,20,50,.25)}
+.side h6{margin:18px 10px 4px;font-size:12px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.rec{padding:7px 10px;border-radius:8px;color:rgba(255,255,255,.78);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rec:hover{background:rgba(255,255,255,.13);color:#fff}
+.me{margin-top:auto;display:flex;gap:10px;align-items:center;padding:8px;font-size:14px}
+main{flex:1;min-width:0}
+.view{display:none;height:100%;min-height:0}
+#v-ia.on,#v-kan.on{display:flex;flex-direction:column}
+#v-conv.on{display:grid;grid-template-columns:340px 1fr}
+
+#v-ia{align-items:center}
+#v-ia:not(.has){justify-content:safe center;overflow-y:auto;padding:16px 16px 6vh}
+.hero{display:flex;align-items:center;gap:14px;margin-bottom:26px;font:400 44px/1.1 "Source Serif 4",Georgia,serif;letter-spacing:-.01em}
+.has .hero{display:none}
+.thread{display:none;flex:1;width:100%;overflow-y:auto;padding:18px 0}
+.has .thread{display:block}
+.dock{width:min(780px,100%);padding:0 16px 16px}
+:not(.has)>.dock{padding:0}
+.box{background:var(--bg);border:1px solid var(--ln);border-radius:22px;box-shadow:0 2px 16px rgba(20,32,46,.09);padding:14px 14px 10px}
+.box:focus-within{border-color:var(--azul)}
+textarea{width:100%;border:0;outline:0;resize:none;background:transparent;color:var(--tx);font:inherit;font-size:16px;line-height:1.5;min-height:48px;max-height:180px;display:block}
+.bar{display:flex;align-items:center;gap:8px}
+.ib{width:34px;height:34px;border-radius:10px;border:0;background:transparent;font-size:22px;line-height:1}
+.ib:hover{background:var(--sf)}
+.tag{margin-left:auto;font-size:13px;color:var(--mu)}
+.send{width:34px;height:34px;border-radius:10px;border:0;background:var(--azul);color:#fff;font-size:17px}
+.send:hover{background:#00335d}
+.sug{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.has .sug{display:none}
+.sug button{border:1px solid var(--ln);background:var(--bg);border-radius:999px;padding:8px 14px;font-size:14px}
+.sug button:hover{border-color:var(--azul);color:var(--br)}
+.msg{max-width:780px;margin:0 auto;padding:10px 16px}
+.u{width:fit-content;max-width:85%;margin-left:auto;background:var(--sf);border-radius:18px;padding:10px 16px}
+.tool{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mu);margin-bottom:8px}
+.tool i{width:12px;height:12px;border:2px solid var(--ln);border-top-color:var(--verm);border-radius:50%;animation:g .7s linear infinite}
+.tool.done{color:var(--br)}
+@keyframes g{to{transform:rotate(360deg)}}
+.ans ul{padding-left:20px;margin:0 0 12px}
+.ans code{background:var(--sf);padding:1px 5px;border-radius:5px;font-size:13px}
+a.file{color:inherit;text-decoration:none}
+@keyframes f{from{opacity:0;transform:translateY(4px)}}
+.ans p{margin:0 0 12px}
+.ans ol{padding-left:20px;margin:0 0 12px}
+.ans li{margin-bottom:6px}
+.mu{color:var(--mu);font-size:13px}
+.ans table{border-collapse:collapse;width:100%;margin:0 0 12px;font-size:14px}
+.ans th,.ans td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ln)}
+.ans th{color:var(--mu);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.file{display:flex;align-items:center;gap:10px;border:1px solid var(--ln);border-radius:12px;padding:10px 14px;width:fit-content;margin-bottom:12px}
+.file span{color:var(--br);font-weight:600;margin-left:12px}
+/* badges e avatares */
+.bd{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.b-critico{background:var(--verm);color:#fff}
+.b-alto{background:rgba(216,25,32,.13);color:var(--verm)}
+.b-atencao{background:rgba(0,68,124,.13);color:var(--br)}
+.b-saudavel,.b-sem_historico{background:var(--sf);color:var(--mu);border:1px solid var(--ln)}
+.av{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font-size:12px;font-weight:700;flex:none}
+.me .av{background:#D81920;color:#fff}
+/* conversas */
+#clist{border-right:1px solid var(--ln);overflow-y:auto}
+.ph{padding:18px 16px 10px;font-size:20px;font-weight:700}
+.ci{display:flex;gap:12px;padding:12px 16px;cursor:pointer;align-items:center}
+.ci:hover,.ci.on{background:var(--sf)}
+.ci .ct{min-width:0;flex:1}
+.ci .ct b,.ci .ct small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci small{color:var(--mu);font-size:13px}
+.un{background:var(--verm);color:#fff;border-radius:999px;font-size:12px;font-weight:700;min-width:20px;height:20px;display:grid;place-items:center;padding:0 6px}
+#cpane{display:flex;flex-direction:column;min-width:0;background:var(--sf)}
+.chd{display:flex;gap:12px;align-items:center;padding:12px 20px;background:var(--bg);border-bottom:1px solid var(--ln)}
+.back{display:none;border:0;background:none;font-size:20px}
+.msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.al{background:var(--bg);border:1px solid var(--ln);border-radius:4px 16px 16px 16px;padding:12px 16px;max-width:520px}
+.al small{color:var(--mu);display:block}
+.al p{margin:2px 0 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.acts button,.ask{border:1px solid var(--ln);background:var(--bg);border-radius:10px;padding:7px 12px;font-size:13px;font-weight:600}
+.acts .pri{background:var(--azul);border-color:var(--azul);color:#fff}
+.acts button:hover,.ask:hover{border-color:var(--azul)}
+.empty{margin:auto;color:var(--mu)}
+/* indicadores, risco, vendedores */
+#v-ind.on,#v-risco.on,#v-vend.on,#v-perfil.on,#v-usr.on{display:block;overflow-y:auto}
+.pgc{padding:8px 24px 32px}
+.pgc .empty{padding:48px 0;text-align:center;margin:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:12px}
+.kpi{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px 16px}
+.kpi small{display:block;color:var(--mu);font-size:13px}
+.kpi b{display:block;font-size:30px;line-height:1.25}
+.kpi.red b{color:var(--verm)}.kpi.blue b{color:var(--br)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px}
+.pn{background:var(--bg);border:1px solid var(--ln);border-radius:14px;padding:16px;margin-bottom:12px}
+.pn h3{margin:0 0 12px;font-size:15px}
+.sb{display:flex;height:14px;border-radius:999px;overflow:hidden;background:var(--sf)}
+.sb i{display:block}
+.lg{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:10px;font-size:13px;color:var(--mu)}
+.lg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px}
+.fb{display:grid;grid-template-columns:120px 1fr 28px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.fb div{height:10px;background:var(--sf);border-radius:999px;overflow:hidden}
+.fb i{display:block;height:100%;background:var(--br);border-radius:999px}
+.fb b{text-align:right}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
+.fchip{border:1px solid var(--ln);background:var(--bg);border-radius:999px;padding:6px 14px;font-size:14px}
+.fchip.on{background:var(--azul);border-color:var(--azul);color:#fff}
+.ctl input,.ctl select{border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:10px;padding:7px 10px;font:inherit;font-size:14px}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:14px}
+.tb{border-collapse:collapse;width:100%;min-width:900px;font-size:14px}
+.tb th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu);padding:10px 12px;background:var(--sf);white-space:nowrap}
+.tb td{padding:10px 12px;border-top:1px solid var(--ln);vertical-align:middle}
+.tb tr:hover td{background:var(--sf)}
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.vc .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:14px;font-size:13px;color:var(--mu)}
+.vs b{display:block;color:var(--tx);font-size:20px}
+.vs b small{font-size:13px;font-weight:400;color:var(--mu)}
+.vs b.dn,.dn{color:var(--verm)}.vs b.up,.up{color:var(--br)}
+.pf{position:relative}
+.pbtn{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.75);background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;padding:0}
+.pbtn:hover,.pbtn[aria-expanded="true"]{background:rgba(255,255,255,.26)}
+.pbtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pmenu{position:absolute;right:0;top:calc(100% + 10px);min-width:220px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:14px;box-shadow:0 12px 32px rgba(0,20,50,.28);padding:6px}
+.pmenu[hidden]{display:none}
+.pinfo{padding:8px 12px 10px;border-bottom:1px solid var(--ln);margin-bottom:6px;font-size:13px;color:var(--mu)}
+.pinfo b{display:block;color:var(--tx);font-size:15px}
+.pmenu a,.pmenu button{display:block;width:100%;text-align:left;padding:9px 12px;border:0;background:none;border-radius:9px;color:var(--tx);text-decoration:none;font:inherit;font-size:14.5px}
+.pmenu a:hover,.pmenu button:hover{background:var(--sf)}
+.pmenu .out{color:var(--verm)}
+.pmenu [hidden]{display:none}
+.tb select{border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:8px;padding:5px 8px;font:inherit;font-size:13px}
+.hbs{display:grid;grid-template-columns:auto 1fr auto;gap:9px 10px;align-items:center;font-size:14px}
+.hbs div{height:12px;background:var(--sf);border-radius:999px;overflow:hidden}
+.hbs i{display:block;height:100%;background:var(--br);border-radius:999px}
+.hbs b{text-align:right;font-size:13px}
+.msg .pn{max-width:600px}
+.sg2{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px}
+.sg2 button{border:1px solid var(--ln);background:var(--bg);border-radius:999px;padding:7px 13px;font-size:14px}
+.sg2 button:hover{border-color:var(--azul);color:var(--br)}
+.brief{width:min(780px,calc(100% - 0px));margin:0 0 18px}
+.has .brief{display:none}
+.bf{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:12px 18px}
+.bf h4{margin:0 0 4px;font-size:14px;color:var(--mu);font-weight:600}
+.bf ul{list-style:none;margin:0;padding:0}
+.bf li{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--ln)}
+.bf li:first-child{border-top:0}
+.bf .t{flex:1}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--mu)}
+.sv-critico .dot{background:var(--verm)}
+.sv-atencao .dot{background:var(--br)}
+.bf button{border:1px solid var(--ln);background:var(--bg);border-radius:10px;padding:5px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+.bf button:hover{border-color:var(--azul)}
+/* kanban */
+.kh{padding:20px 24px 8px}
+.kh h1{margin:0;font-size:22px}
+.mt{color:var(--mu);font-size:13px}
+#board{flex:1;display:flex;gap:12px;overflow:auto;padding:12px 24px 24px;align-items:flex-start}
+.col{width:285px;flex:none;background:var(--sf);border-radius:14px;padding:10px;min-height:120px;border:2px solid transparent}
+.col.ov{border-color:var(--azul)}
+.ch{display:flex;justify-content:space-between;padding:4px 4px 10px;font-size:14px}
+.ch span{background:var(--bg);border-radius:999px;padding:0 9px;font-size:12px;line-height:20px;color:var(--mu)}
+.col:nth-child(5) .ch b{color:var(--br)}
+.col:nth-child(6) .ch b{color:var(--verm)}
+.card{background:var(--bg);border:1px solid var(--ln);border-radius:12px;padding:12px;margin-bottom:8px;cursor:grab}
+.card:active{cursor:grabbing}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card .mt{margin-top:4px}
+.ft{margin-top:10px}
+.ft .av{width:26px;height:26px;font-size:11px;background:var(--sf);color:var(--mu);border:1px solid var(--ln)}
+@media (max-width:800px){
+.side{width:60px;padding:12px 6px}
+.lbl,.side h6,.rec,.logo span,.me span:last-child{display:none}
+.hd{height:52px;padding:0 9px}
+.logo{width:auto}
+.pt{margin-left:16px}
+nav a{justify-content:center}
+.hero{font-size:32px}
+#v-conv.on{grid-template-columns:1fr}
+#cpane{display:none}
+#v-conv.open #clist{display:none}
+#v-conv.open #cpane{display:flex}
+.back{display:block}
+.col{width:260px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hd">
+ <div class="pf" id="pf">
+  <button class="pbtn" id="pbtn" type="button" aria-haspopup="menu" aria-expanded="false" title="Perfil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></button>
+  <div class="pmenu" id="pmenu" role="menu" hidden>
+   <div class="pinfo" id="pinfo">Conta</div>
+   <a href="#perfil" role="menuitem">Meu perfil</a>
+   <a href="#usuarios" role="menuitem" id="pm-usr" hidden>Gerenciar usuários</a>
+   <button type="button" role="menuitem" class="out" data-sair="1">Sair</button>
+  </div>
+ </div>
+</header>
+<div class="wrap">
+<aside class="side">
+ <nav>
+  <a href="#ia"><svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M10 3.5c.9 4.4 2.9 6.4 7.2 7.3-4.3.9-6.3 2.9-7.2 7.3-.9-4.4-2.9-6.4-7.2-7.3 4.3-.9 6.3-2.9 7.2-7.3z"/><path d="M19 2c.3 1.7 1 2.4 2.7 2.7-1.7.3-2.4 1-2.7 2.7-.3-1.7-1-2.4-2.7-2.7C18 4.4 18.7 3.7 19 2zM19 17c.3 1.7 1 2.4 2.7 2.7-1.7.3-2.4 1-2.7 2.7-.3-1.7-1-2.4-2.7-2.7 1.7-.3 2.4-1 2.7-2.7z"/></svg><span class="lbl">Assistente IA</span></a>
+  <a href="#conversas"><svg viewBox="0 0 24 24"><path d="M12 4.5c-4.7 0-8.2 2.9-8.2 6.7 0 2 1 3.7 2.6 4.9L5.3 20l4.1-1.8c.8.2 1.6.3 2.6.3 4.7 0 8.2-2.9 8.2-6.7S16.7 4.5 12 4.5z"/></svg><span class="lbl">Conversas</span></a>
+  <a href="#kanban"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M9.2 4v16M14.8 4v16M3.5 8h17"/><rect x="5" y="10.2" width="2.6" height="2.6" rx=".6"/><rect x="10.7" y="10.2" width="2.6" height="2.6" rx=".6"/><rect x="10.7" y="14.6" width="2.6" height="2.6" rx=".6"/><rect x="16.4" y="10.2" width="2.6" height="2.6" rx=".6"/></svg><span class="lbl">Kanban</span></a>
+  <a href="#indicadores"><svg viewBox="0 0 24 24"><path d="M19.5 13.5A7.5 7.5 0 1 1 10.5 4.5"/><circle cx="11" cy="12" r="2.8"/><path d="M14 3.5a6.5 6.5 0 0 1 6.5 6.5H14z"/></svg><span class="lbl">Indicadores</span></a>
+  <a href="#risco"><svg viewBox="0 0 24 24"><path d="M10.5 4.5 2.8 19.5h17"/><circle cx="11.5" cy="13" r="1.9"/><path d="M8 18.2a3.5 3.5 0 0 1 7 0"/><circle cx="19" cy="5.5" r="3" style="fill:#E8575C;stroke:none"/><path d="M19 4v1.8M19 7v.1" style="stroke:#fff;stroke-width:1.3"/></svg><span class="lbl">Clientes em risco</span></a>
+  <a href="#vendedores"><svg viewBox="0 0 24 24"><path d="M3 7.5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="8.5" cy="12.2" r="1.8"/><path d="M5.5 17.2a3 3 0 0 1 6 0"/><circle cx="17" cy="16" r="3.3" style="fill:var(--ibg)"/><text x="17" y="18" font-size="5.5" text-anchor="middle" style="fill:currentColor;stroke:none;font-weight:700">$</text></svg><span class="lbl">Carteira por vendedor</span></a>
+ </nav>
+ 
+ 
+ 
+ 
+ 
+</aside>
+<main>
+ <section class="view" id="v-ia">
+  <div class="hero" id="hi">Olá, comercial</div>
+  <div class="brief" id="brief"></div>
+  <div class="thread" id="thread"></div>
+  <div class="dock">
+   <div class="box">
+    <textarea id="q" rows="1" placeholder="Como posso ajudar você hoje?"></textarea>
+    <div class="bar"><span class="tag">Dados do Rodopar · Carteira de clientes</span><button class="send" id="go" title="Enviar" type="button">↑</button></div>
+   </div>
+   <div class="sug">
+    <button>Quais clientes estão em risco?</button>
+    <button>Gerar relatório dos últimos 7 dias</button>
+    <button>Como posso recuperar os clientes em nível crítico?</button>
+   </div>
+  </div>
+ </section>
+ <section class="view" id="v-conv"><div id="clist"></div><div id="cpane"></div></section>
+ <section class="view" id="v-kan">
+  <div class="kh"><h1>Recuperação de clientes</h1><div class="mt" id="ksum"></div></div>
+  <div id="board"></div>
+ </section>
+ <section class="view" id="v-usr"><div class="kh"><h1>Usuários</h1><div class="mt">Aprove, bloqueie ou altere o perfil de acesso de quem usa o sistema</div></div><div class="pgc" id="usr"></div></section>
+ <section class="view" id="v-perfil"><div class="kh"><h1>Meu perfil</h1><div class="mt">Dados da sua conta</div></div><div class="pgc" id="perfil"></div></section>
+ <section class="view" id="v-ind"><div class="kh"><h1>Indicadores</h1><div class="mt">Visão geral da carteira de clientes</div></div><div class="pgc" id="ind"></div></section>
+ <section class="view" id="v-risco"><div class="kh"><h1>Clientes em risco</h1><div class="mt">Níveis crítico, alto e atenção, definidos pelos percentis da carteira</div></div><div class="pgc" id="risco"></div></section>
+ <section class="view" id="v-vend"><div class="kh"><h1>Carteira por vendedor</h1><div class="mt" id="vnote">Distribuição de risco e variação de CT-es por vendedor</div></div><div class="pgc" id="vend"></div></section>
+</main>
+</div>
+</div>
+<script>
+
+const API_BASE='';
+const token=()=>{try{return localStorage.getItem('token')||''}catch(e){return ''}};
+const hdr=json=>{const h={},t=token();if(t)h.Authorization='Bearer '+t;if(json)h['Content-Type']='application/json';return h};
+async function api(path,opt={}){const r=await fetch(API_BASE+path,{...opt,headers:{...hdr(!!opt.body),...(opt.headers||{})}});if(!r.ok){if(r.status===401&&token())irLogin('expirou');throw new Error(r.status)}return r.status===204?null:r.json()}
+
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const NM={critico:'Crítico',alto:'Alto',atencao:'Atenção',saudavel:'Saudável',sem_historico:'Sem histórico'};
+const COLS=[['novo_alerta','Novo alerta'],['em_analise','Em análise'],['contato_feito','Contato feito'],['em_negociacao','Em negociação'],['recuperado','Recuperado'],['perdido','Perdido']];
+const ini=n=>String(n||'').split(' ').filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+const esc=t=>String(t??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const fx=n=>n==null?'–':Number(n).toFixed(1).replace('.',',');
+const dt=d=>new Date(d).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+const spark=s=>{if(!s||s.length<2)return '';const m=Math.max(...s,1),w=120,h=32,p=s.map((v,k)=>[k*w/(s.length-1),h-3-(v/m)*(h-8)]),l=p[p.length-1];return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline fill="none" stroke="var(--br)" stroke-width="2" points="${p.map(x=>x.join()).join(' ')}"/><circle cx="${l[0]}" cy="${l[1]}" r="3.5" fill="#D81920"/></svg>`};
+
+function md(s){
+ const inl=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<i>$2</i>').replace(/`([^`]+)`/g,'<code>$1</code>');
+ const LI=/^\s*([-*]|\d+\.)\s+/,TB=/^\s*\|.*\|\s*$/,L=s.split('\n'),o=[];let i=0;
+ while(i<L.length){const l=L[i];
+  if(TB.test(l)&&/^\s*\|[\s:|-]+\|\s*$/.test(L[i+1]||'')){const row=x=>x.trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim());const h=row(l);i+=2;const rs=[];while(i<L.length&&TB.test(L[i]))rs.push(row(L[i++]));
+   o.push(`<table><tr>${h.map(c=>`<th>${inl(c)}</th>`).join('')}</tr>${rs.map(r=>`<tr>${r.map(c=>`<td>${inl(c)}</td>`).join('')}</tr>`).join('')}</table>`);continue}
+  if(LI.test(l)){const t=/^\s*\d+\./.test(l)?'ol':'ul',it=[];while(i<L.length&&LI.test(L[i]))it.push(L[i++].replace(LI,''));o.push(`<${t}>${it.map(x=>`<li>${inl(x)}</li>`).join('')}</${t}>`);continue}
+  const hd=l.match(/^#{1,4}\s+(.*)/);if(hd){o.push(`<p><b>${inl(hd[1])}</b></p>`);i++;continue}
+  if(l.trim()){const p=[];while(i<L.length&&L[i].trim()&&!LI.test(L[i])&&!TB.test(L[i])&&!/^#{1,4}\s/.test(L[i]))p.push(L[i++]);if(!p.length)p.push(L[i++]);o.push(`<p>${inl(p.join(' '))}</p>`);continue}
+  i++}
+ return o.join('')}
+
+const V={ia:'v-ia',conversas:'v-conv',kanban:'v-kan',indicadores:'v-ind',risco:'v-risco',vendedores:'v-vend',perfil:'v-perfil',usuarios:'v-usr'};
+function rota(){const k=V[location.hash.slice(1)]?location.hash.slice(1):'ia';$$('.view').forEach(v=>v.classList.toggle('on',v.id===V[k]));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+k))}
+addEventListener('hashchange',rota);rota();
+
+let C=[],sel=null,erro=false,BR=null,T=null,BI=[],ME=null;const AL={};
+const vazio=()=>erro?'Não foi possível carregar os dados. <button class="ask" id="rt">Tentar novamente</button>':'Nenhum cliente encontrado.';
+async function carregar(){
+ const [a,b,t,m]=await Promise.allSettled([api('/api/clientes'),api('/api/briefing'),api('/api/indicadores/tendencias'),api('/api/me')]);
+ ME=m.status==='fulfilled'?m.value:null;
+ if(m.status==='rejected'&&String(m.reason&&m.reason.message)==='403'){irLogin('nao_autorizado');return}
+ if(location.hash==='#usuarios'&&admin())carregarUsuarios();
+ if(a.status==='fulfilled'&&Array.isArray(a.value)){C=a.value;erro=false}else{C=[];erro=true}
+ BR=b.status==='fulfilled'?b.value:null;T=t.status==='fulfilled'?t.value:null;todos()}
+
+const card=c=>`<div class="card" draggable="true" data-id="${esc(c.id)}"><div class="row"><b>${esc(c.nome)}</b><span class="bd b-${esc(c.classificacao)}">${NM[c.classificacao]||''}</span></div>${c.queda_pct!=null?`<div class="mt">Queda de <b>${c.queda_pct}%</b>${c.dias_sem_cte!=null?` · ${c.dias_sem_cte} dias sem CT-e`:''}</div>`:''}<div class="mt">Índice de desvio ${fx(c.indice)}</div><div class="row ft"><span class="av">${esc(c.responsavel||'–')}</span><button class="ask" data-ask="${esc(c.id)}">Pedir ajuda à IA</button></div></div>`;
+function kan(){
+ const crit=C.filter(x=>x.classificacao==='critico').length;
+ $('#ksum').textContent=C.length?`${C.length} clientes · ${crit} em nível crítico · arraste os cards entre as colunas`:'';
+ if(!C.length){$('#board').innerHTML=`<div class="empty">${vazio()}</div>`;return}
+ $('#board').innerHTML=COLS.map(([k,nm])=>{const L=C.filter(x=>x.coluna===k);return `<div class="col" data-k="${k}"><div class="ch"><b>${nm}</b><span>${L.length}</span></div>${L.map(card).join('')}</div>`}).join('');
+ $$('.card').forEach(el=>el.ondragstart=e=>e.dataTransfer.setData('t',el.dataset.id));
+ $$('.col').forEach(el=>{el.ondragover=e=>{e.preventDefault();el.classList.add('ov')};el.ondragleave=()=>el.classList.remove('ov');
+  el.ondrop=e=>{e.preventDefault();const c=C.find(x=>String(x.id)===e.dataTransfer.getData('t')),k=el.dataset.k;
+   if(c&&c.coluna!==k){const antes=c.coluna;c.coluna=k;todos();api('/api/kanban/'+c.id,{method:'PATCH',body:JSON.stringify({coluna:k})}).catch(()=>{c.coluna=antes;todos()})}}})}
+
+function conv(){
+ $('#clist').innerHTML='<div class="ph">Conversas</div>'+(C.length?C.map(c=>`<div class="ci ${c.id==sel?'on':''}" data-c="${esc(c.id)}"><span class="av b-${esc(c.classificacao)}">${esc(ini(c.nome))}</span><div class="ct"><b>${esc(c.nome)}</b><small>${esc(c.ultimo_alerta||'Sem alertas')}</small></div>${c.nao_lidos?`<span class="un">${c.nao_lidos}</span>`:''}</div>`).join(''):`<div class="mt" style="padding:8px 16px">${vazio()}</div>`);
+ const c=C.find(x=>x.id==sel),al=c?AL[c.id]:0;
+ $('#cpane').innerHTML=!c?'<div class="empty">Selecione um cliente para ver os alertas</div>':
+ `<div class="chd"><button class="back" id="bk">←</button><span class="av b-${esc(c.classificacao)}">${esc(ini(c.nome))}</span><div><b>${esc(c.nome)}</b><div class="mt">Índice ${fx(c.indice)} · <span class="bd b-${esc(c.classificacao)}">${NM[c.classificacao]||''}</span></div></div></div><div class="msgs">${
+  al===undefined?'<div class="empty">Carregando…</div>':al===null?'<div class="empty">Não foi possível carregar os alertas.</div>':!al.length?'<div class="empty">Nenhum alerta para este cliente.</div>':
+  [...al].reverse().map(a=>`<div class="al"><small>${dt(a.criado_em)}</small><b>${esc(a.titulo)}</b><p>${esc(a.corpo)}</p>${a.grafico?spark(c.serie):''}</div>`).join('')
+ }<div class="acts"><button data-kan="1">Abrir no kanban</button><button class="pri" data-ask="${esc(c.id)}">Pedir ajuda à IA</button></div></div>`;
+ $('#v-conv').classList.toggle('open',!!c);
+ const b=$('#bk');if(b)b.onclick=()=>{sel=null;conv()}}
+async function abrir(id){
+ sel=id;const c=C.find(x=>x.id==id);if(!c)return;
+ const tinha=c.nao_lidos;c.nao_lidos=0;conv();
+ if(AL[id]===undefined){try{AL[id]=await api(`/api/clientes/${id}/alertas`)}catch(e){AL[id]=null}conv()}
+ if(tinha)api(`/api/clientes/${id}/lido`,{method:'POST'}).catch(()=>{})}
+$('#clist').onclick=e=>{const i=e.target.closest('.ci');if(i)abrir(i.dataset.c)};
+
+const PAL=['var(--br)','#D81920','#6E9ACB','#E8767B'];
+const brl=v=>Number(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL',notation:'compact',maximumFractionDigits:1});
+const num=v=>Number(v).toLocaleString('pt-BR');
+const mesNome=m=>['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'][+String(m).slice(5,7)-1]||String(m);
+function barrasH(rot,val,fmt=brl){const m=Math.max(...val,1);return `<div class="hbs">${rot.map((r,i)=>`<span>${esc(r)}</span><div><i style="width:${val[i]*100/m}%"></i></div><b>${fmt(val[i])}</b>`).join('')}</div>`}
+function linhas(rot,ser){if(rot.length<2)return '<div class="mt">Sem dados suficientes.</div>';
+ const m=Math.max(...ser.flatMap(s=>s.valores),1),W=600,Hh=200,x=i=>34+i*(W-50)/(rot.length-1),y=v=>Hh-28-(v/m)*(Hh-52);
+ const ls=ser.map(s=>`<polyline points="${s.valores.map((v,i)=>x(i)+','+y(v)).join(' ')}" fill="none" stroke="${s.cor}" stroke-width="2.5" stroke-linejoin="round"/>`+s.valores.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${s.cor}"><title>${esc(s.nome)}: ${v}</title></circle>`).join('')).join('');
+ return `<svg viewBox="0 0 ${W} ${Hh}" width="100%" role="img"><line x1="34" y1="${y(0)}" x2="${W-16}" y2="${y(0)}" stroke="var(--ln)"/><line x1="34" y1="${y(m)}" x2="${W-16}" y2="${y(m)}" stroke="var(--ln)" stroke-dasharray="3 4"/><text x="4" y="${y(m)+4}" font-size="11" fill="var(--mu)">${num(m)}</text><text x="4" y="${y(0)+4}" font-size="11" fill="var(--mu)">0</text>${ls}${rot.map((r,i)=>`<text x="${x(i)}" y="${Hh-8}" font-size="11" text-anchor="middle" fill="var(--mu)">${esc(r)}</text>`).join('')}</svg><div class="lg">${ser.map(s=>`<span style="--c:${s.cor}">${esc(s.nome)}</span>`).join('')}</div>`}
+const grafChat=g=>{const s=g.series||[],rot=g.rotulos||[];
+ const corpo=(g.formato==='linhas'||s.length>1)?linhas(rot,s.map((x,i)=>({nome:x.nome,valores:x.valores,cor:PAL[i%PAL.length]}))):barrasH(rot,(s[0]||{valores:[]}).valores,g.unidade==='brl'?brl:num);
+ return `<div class="pn"><h3>${esc(g.titulo||'')}</h3>${corpo}</div>`};
+function tend(){
+ const f=(T&&T.faturamento)||[],c=(T&&T.carteira)||[];
+ if(!f.length&&!c.length)return '<div class="pn"><h3>Tendências</h3><div class="mt">Sem dados de tendência disponíveis.</div></div>';
+ let vf='';if(f.length>1){const a=f[f.length-1].valor,b=f[f.length-2].valor;if(b){const v=Math.round((a-b)*100/b);vf=` <span class="${v<0?'dn':'up'}" style="font-weight:400;font-size:13px">· ${v>0?'+':''}${v}% vs. mês anterior</span>`}}
+ return `<div class="grid2"><div class="pn"><h3>Faturamento por mês${vf}</h3>${f.length?barrasH(f.map(x=>mesNome(x.mes)),f.map(x=>x.valor)):'<div class="mt">Sem dados.</div>'}</div><div class="pn"><h3>Evolução da carteira</h3>${c.length?linhas(c.map(x=>mesNome(x.mes)),[{nome:'Novos clientes',valores:c.map(x=>x.novos),cor:'var(--br)'},{nome:'Clientes recuperados',valores:c.map(x=>x.recuperados),cor:'#6E9ACB'},{nome:'Clientes perdidos',valores:c.map(x=>x.perdidos),cor:'#D81920'}]):'<div class="mt">Sem dados.</div>'}</div></div>`}
+
+const saud=()=>{const h=new Date().getHours();return h<12?'Bom dia':h<18?'Boa tarde':'Boa noite'};
+const pl=(n,s,p)=>n+' '+(n===1?s:p);
+function derivados(){const d=[];
+ const a=C.filter(c=>(c.dias_sem_cte??0)>=30).length,b=C.filter(c=>c.classificacao==='critico').length,q=C.filter(c=>isR(c)&&(c.queda_pct??0)>=30).length;
+ if(a)d.push({severidade:'critico',texto:`${pl(a,'cliente está','clientes estão')} há 30 dias ou mais sem CT-e.`,pergunta:'Quais clientes estão há 30 dias ou mais sem CT-e?'});
+ if(b)d.push({severidade:'critico',texto:`${pl(b,'cliente em nível crítico','clientes em nível crítico')}.`,pergunta:'Analise os clientes em nível crítico e sugira prioridades.'});
+ if(q)d.push({severidade:'atencao',texto:`${pl(q,'cliente apresenta','clientes apresentam')} queda de 30% ou mais nos CT-es.`,pergunta:'Quais clientes têm queda de 30% ou mais nos CT-es e o que podemos fazer?'});
+ return d}
+function brief(){
+ const nm=(BR&&BR.nome)||(ME&&ME.nome?String(ME.nome).split(' ')[0]:'');$('#hi').textContent=nm?`${saud()}, ${nm}`:'Olá, comercial';
+ BI=(BR&&BR.insights&&BR.insights.length)?BR.insights:derivados();
+ if(BR&&BR.sugestoes&&BR.sugestoes.length)$('.sug').innerHTML=BR.sugestoes.map(x=>`<button>${esc(x)}</button>`).join('');
+ $('#brief').innerHTML=BI.length?`<div class="bf"><h4>Identifiquei hoje:</h4><ul>${BI.map((x,i)=>`<li class="sv-${esc(x.severidade||'info')}"><span class="dot"></span><span class="t">${esc(x.texto)}</span><button data-bf="${i}">Analisar</button></li>`).join('')}</ul></div>`:''}
+
+const RISCO=['critico','alto','atencao'],isR=c=>RISCO.includes(c.classificacao);
+const COR={critico:'#D81920',alto:'#E8767B',atencao:'#6E9ACB',saudavel:'#00447C',sem_historico:'#B6C0CC'};
+const pct=(a,b)=>b?Math.round(a*100/b)+'%':'–';
+const soma=a=>a.reduce((x,y)=>x+y,0);
+const somaSerie=L=>{const n=Math.max(0,...L.map(c=>(c.serie||[]).length));return Array.from({length:n},(_,i)=>L.reduce((s,c)=>{const q=c.serie||[];return s+(q[q.length-n+i]||0)},0))};
+const varSem=s=>{if(!s||s.length<8)return null;const a=soma(s.slice(-4)),b=soma(s.slice(-8,-4));return b?Math.round((a-b)*100/b):null};
+const stack=L=>{const t=L.length||1;return `<div class="sb">${Object.keys(NM).map(k=>{const n=L.filter(c=>c.classificacao===k).length;return n?`<i style="width:${n*100/t}%;background:${COR[k]}" title="${NM[k]}: ${n}"></i>`:''}).join('')}</div>`};
+const legenda=L=>`<div class="lg">${Object.keys(NM).map(k=>`<span style="--c:${COR[k]}">${NM[k]}: <b>${L.filter(c=>c.classificacao===k).length}</b></span>`).join('')}</div>`;
+function linha(s){if(s.length<2)return '<div class="mt">Sem série histórica.</div>';
+ const m=Math.max(...s,1),W=600,Hh=170,x=i=>30+i*(W-45)/(s.length-1),y=v=>Hh-24-(v/m)*(Hh-44),pts=s.map((v,i)=>x(i)+','+y(v)).join(' ');
+ return `<svg viewBox="0 0 ${W} ${Hh}" width="100%" role="img" aria-label="CT-es por semana"><line x1="30" y1="${y(0)}" x2="${W-15}" y2="${y(0)}" stroke="var(--ln)"/><polygon points="30,${y(0)} ${pts} ${x(s.length-1)},${y(0)}" fill="var(--br)" fill-opacity=".12"/><polyline points="${pts}" fill="none" stroke="var(--br)" stroke-width="2.5"/><circle cx="${x(s.length-1)}" cy="${y(s[s.length-1])}" r="4" fill="#D81920"/><text x="4" y="${y(m)+4}" font-size="11" fill="var(--mu)">${m}</text><text x="4" y="${y(0)+4}" font-size="11" fill="var(--mu)">0</text><text x="30" y="${Hh-4}" font-size="11" fill="var(--mu)">há ${s.length-1} sem.</text><text x="${W-15}" y="${Hh-4}" font-size="11" text-anchor="end" fill="var(--mu)">última semana</text></svg>`}
+function ind(){const box=$('#ind');if(!C.length){box.innerHTML=`<div class="empty">${vazio()}</div>`;return}
+ const rs=C.filter(isR),cr=C.filter(c=>c.classificacao==='critico'),rec=C.filter(c=>c.coluna==='recuperado').length,per=C.filter(c=>c.coluna==='perdido').length,s=somaSerie(C),v=varSem(s);
+ box.innerHTML=`<div class="kpis">
+ <div class="kpi"><small>Clientes monitorados</small><b>${C.length}</b></div>
+ <div class="kpi red"><small>Em risco (crítico, alto e atenção)</small><b>${rs.length}</b><small>${pct(rs.length,C.length)} da carteira</small></div>
+ <div class="kpi red"><small>Em nível crítico</small><b>${cr.length}</b></div>
+ <div class="kpi blue"><small>Recuperados</small><b>${rec}</b></div>
+ <div class="kpi"><small>Perdidos</small><b>${per}</b></div>
+ <div class="kpi"><small>Taxa de recuperação</small><b>${pct(rec,rec+per)}</b><small>recuperados ÷ (recuperados + perdidos)</small></div></div>
+ ${tend()}
+ <div class="grid2"><div class="pn"><h3>Carteira por nível</h3>${stack(C)}${legenda(C)}</div>
+ <div class="pn"><h3>Funil de recuperação</h3>${COLS.map(([k,n])=>{const q=C.filter(c=>c.coluna===k).length;return `<div class="fb"><span>${n}</span><div><i style="width:${q*100/C.length}%"></i></div><b>${q}</b></div>`}).join('')}</div></div>
+ <div class="pn"><h3>CT-es por semana (toda a carteira)${v!=null?` <span class="${v<0?'dn':'up'}" style="font-weight:400;font-size:13px">· últimas 4 semanas ${v>0?'+':''}${v}% vs. as 4 anteriores</span>`:''}</h3>${linha(s)}</div>`}
+
+let fNivel='todos',fBusca='',fOrd='indice',fVend=null;
+function risco(){const box=$('#risco');if(!C.length){box.innerHTML=`<div class="empty">${vazio()}</div>`;return}
+ let L=C.filter(isR);const tot=L.length;
+ if(fNivel!=='todos')L=L.filter(c=>c.classificacao===fNivel);
+ if(fVend!==null)L=L.filter(c=>(c.vendedor||'Sem vendedor')===fVend);
+ if(fBusca)L=L.filter(c=>String(c.nome).toLowerCase().includes(fBusca));
+ const ord={indice:(a,b)=>(a.indice??0)-(b.indice??0),queda:(a,b)=>(b.queda_pct??-1)-(a.queda_pct??-1),dias:(a,b)=>(b.dias_sem_cte??-1)-(a.dias_sem_cte??-1)}[fOrd];
+ L=[...L].sort(ord);
+ const ch=[['todos','Todos'],['critico','Crítico'],['alto','Alto'],['atencao','Atenção']];
+ box.innerHTML=`<div class="ctl">${ch.map(([k,n])=>`<button class="fchip ${fNivel===k?'on':''}" data-nv="${k}">${n}</button>`).join('')}<input id="bq" placeholder="Buscar cliente" value="${esc(fBusca)}"><select id="bo"><option value="indice">Pior índice</option><option value="queda">Maior queda</option><option value="dias">Mais dias sem CT-e</option></select>${fVend!==null?`<button class="fchip on" data-vx="1">Vendedor: ${esc(fVend)} ✕</button>`:''}<span class="mt">${L.length} de ${tot} clientes em risco</span></div>`+
+ (L.length?`<div class="tw"><table class="tb"><tr><th>Cliente</th><th>Nível</th><th>Índice</th><th>Queda</th><th>Sem CT-e</th><th>Habitual</th><th>Tendência</th><th>Vendedor</th><th>Etapa</th><th></th></tr>${L.map(c=>`<tr><td><b>${esc(c.nome)}</b></td><td><span class="bd b-${esc(c.classificacao)}">${NM[c.classificacao]||''}</span></td><td>${fx(c.indice)}</td><td>${c.queda_pct!=null?c.queda_pct+'%':'–'}</td><td>${c.dias_sem_cte!=null?c.dias_sem_cte+' dias':'–'}</td><td>${c.intervalo_habitual_dias!=null?'a cada '+c.intervalo_habitual_dias+' dias':'–'}</td><td>${spark(c.serie)}</td><td>${esc(c.vendedor||'–')}</td><td>${esc((COLS.find(x=>x[0]===c.coluna)||[0,'–'])[1])}</td><td style="white-space:nowrap"><button class="ask" data-conv="${esc(c.id)}">Ver alertas</button> <button class="ask" data-ask="${esc(c.id)}">Pedir ajuda à IA</button></td></tr>`).join('')}</table></div>`:`<div class="empty">${tot?'Nenhum cliente com esses filtros.':'Nenhum cliente em risco no momento.'}</div>`);
+ $('#bo').value=fOrd}
+
+function vend(){const box=$('#vend');if(!C.length){box.innerHTML=`<div class="empty">${vazio()}</div>`;return}
+ const g={};C.forEach(c=>{const k=c.vendedor||'Sem vendedor';(g[k]=g[k]||[]).push(c)});
+ const L=Object.entries(g).map(([n,cs])=>({n,cs,r:cs.filter(isR).length,v:varSem(somaSerie(cs)),rec:cs.filter(c=>c.coluna==='recuperado').length,per:cs.filter(c=>c.coluna==='perdido').length})).sort((a,b)=>b.r/b.cs.length-a.r/a.cs.length);
+ $('#vnote').textContent=C.some(c=>c.vendedor)?'Distribuição de risco e variação de CT-es por vendedor, do maior para o menor percentual em risco':'O campo "vendedor" ainda não vem da API em /api/clientes; por isso todos aparecem juntos.';
+ box.innerHTML=`<div class="vg">${L.map(g=>`<div class="pn vc"><div class="top"><b>${esc(g.n)}</b><span class="mt">${g.cs.length} clientes</span></div>${stack(g.cs)}${legenda(g.cs)}<div class="vs"><div><b class="${g.r?'dn':''}">${g.r} <small>(${pct(g.r,g.cs.length)})</small></b>em risco</div><div><b class="${g.v==null?'':g.v<0?'dn':'up'}">${g.v==null?'–':(g.v>0?'+':'')+g.v+'%'}</b>CT-es, 4 sem. vs 4 anteriores</div><div><b>${g.rec}</b>recuperados</div><div><b>${g.per}</b>perdidos</div></div><div class="acts" style="margin-top:14px"><button data-vv="${esc(g.n)}">Ver clientes em risco</button></div></div>`).join('')}</div>`}
+const PERF={comercial:'Comercial',gestao:'Gestão',ti:'TI'};
+function admin(){return !!(ME&&['gestao','ti'].includes(ME.perfil))}
+function perfil(){const m=ME||{};$('#pm-usr').hidden=!admin();
+ $('#pinfo').innerHTML=m.nome?`<b>${esc(m.nome)}</b>${esc(m.email||'')}`:'Conta';
+ $('#perfil').innerHTML=ME?`<div class="pn" style="max-width:520px"><div class="row" style="justify-content:flex-start;gap:16px"><span class="av" style="width:56px;height:56px;font-size:18px;background:var(--azul);color:#fff">${esc(ini(m.nome)||'?')}</span><div><b style="font-size:18px">${esc(m.nome)}</b><div class="mt">${esc(m.email||'')}</div></div></div><div class="vs"><div><b>${esc(PERF[m.perfil]||m.perfil||'–')}</b>perfil de acesso</div><div><b>${esc(m.cargo||'–')}</b>cargo</div></div><div class="acts" style="margin-top:16px"><button data-sair="1">Sair</button></div></div>`:'<div class="empty">Não foi possível carregar os dados do perfil.</div>'}
+async function sair(){const t=token();if(t){try{await fetch(API_BASE+'/api/logout',{method:'POST',headers:{Authorization:'Bearer '+t}})}catch(e){}}irLogin('saiu')}
+const todos=()=>{kan();conv();ind();risco();vend();brief();perfil()};
+
+const th=$('#thread'),ta=$('#q');let convId=null,ocupado=false;
+async function enviar(t){t=(t||'').trim();if(!t||ocupado)return;ocupado=true;
+ $('#v-ia').classList.add('has');
+ th.insertAdjacentHTML('beforeend',`<div class="msg"><div class="u">${esc(t)}</div></div>`);
+ ta.value='';ta.style.height='';
+ const el=document.createElement('div');el.className='msg';el.innerHTML='<div class="tool"><i></i>Consultando os dados…</div>';th.append(el);th.scrollTop=th.scrollHeight;
+ let txt='',tool='',arqs=[],gs=[],sg=[];
+ const draw=fim=>{el.innerHTML=`<div class="tool ${fim?'done':''}">${fim?(tool?'✓ '+esc(tool):''):'<i></i>'+(tool?esc(tool):'Consultando os dados…')}</div><div class="ans">${md(txt)}</div>`+gs.map(grafChat).join('')+arqs.map(a=>`<a class="file" href="${esc(a.url)}" target="_blank" rel="noopener">📄 <b>${esc(a.nome)}</b><span>Baixar</span></a>`).join('')+(sg.length?`<div class="sg2">${sg.map(x=>`<button data-sg>${esc(x)}</button>`).join('')}</div>`:'');th.scrollTop=th.scrollHeight};
+ try{
+  const r=await fetch(API_BASE+'/api/chat',{method:'POST',headers:hdr(true),body:JSON.stringify({mensagem:t,conversa_id:convId})});
+  if(r.status===401){ocupado=false;irLogin('expirou');return}
+  if(!r.ok||!r.body)throw new Error(r.status);
+  const rd=r.body.getReader(),dec=new TextDecoder();let buf='';
+  for(;;){const {done,value}=await rd.read();if(done)break;buf+=dec.decode(value,{stream:true});
+   let i;while((i=buf.indexOf('\n\n'))>=0){const ev=buf.slice(0,i);buf=buf.slice(i+2);
+    const l=ev.split('\n').filter(x=>x.startsWith('data:')).map(x=>x.slice(5).trim()).join('');if(!l)continue;
+    let d;try{d=JSON.parse(l)}catch(e){continue}
+    if(d.tipo==='ferramenta')tool=d.nome;else if(d.tipo==='texto')txt+=d.texto;else if(d.tipo==='arquivo')arqs.push(d);else if(d.tipo==='grafico')gs.push(d);else if(d.tipo==='sugestoes')sg=d.itens||[];else if(d.tipo==='fim'&&d.conversa_id)convId=d.conversa_id;
+    draw(false)}}
+  draw(true)
+ }catch(e){el.innerHTML='<div class="ans"><p>Não consegui falar com o servidor. Tente novamente em instantes.</p></div>'}
+ ocupado=false}
+$('#go').onclick=()=>enviar(ta.value);
+ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();enviar(ta.value)}};
+ta.oninput=()=>{ta.style.height='auto';ta.style.height=Math.min(ta.scrollHeight,180)+'px'};
+document.addEventListener('click',e=>{
+ const a=e.target.closest('[data-ask]');
+ if(a){const c=C.find(x=>x.id==a.dataset.ask);if(c){location.hash='#ia';enviar(`Como posso recuperar o cliente ${c.nome}?`)}}
+ if(e.target.closest('[data-kan]'))location.hash='#kanban';
+ if(e.target.closest('#rt'))carregar();
+ if(!e.target.closest('#pf')||e.target.closest('#pmenu a,#pmenu button'))fechaM();
+ if(e.target.closest('[data-sair]'))sair();
+ const us=e.target.closest('[data-us]');if(us){const [id,st]=us.dataset.us.split('|');api('/api/usuarios/'+id,{method:'PATCH',body:JSON.stringify({status:st})}).then(()=>{const u=(USR||[]).find(x=>String(x.id)===id);if(u)u.status=st;usr()}).catch(carregarUsuarios)}
+ if(e.target.closest('#ru'))carregarUsuarios();
+ const sb=e.target.closest('.sug button,[data-sg]');if(sb)enviar(sb.textContent);
+ const bf=e.target.closest('[data-bf]');if(bf){const x=BI[+bf.dataset.bf];if(x)enviar(x.pergunta||`Analise: ${x.texto}`)}
+ const nv=e.target.closest('[data-nv]');if(nv){fNivel=nv.dataset.nv;risco()}
+ if(e.target.closest('[data-vx]')){fVend=null;risco()}
+ const vv=e.target.closest('[data-vv]');if(vv){fVend=vv.dataset.vv;fNivel='todos';fBusca='';risco();location.hash='#risco'}
+ const cv=e.target.closest('[data-conv]');if(cv){location.hash='#conversas';abrir(cv.dataset.conv)}});
+document.addEventListener('input',e=>{if(e.target.id==='bq'){fBusca=e.target.value.trim().toLowerCase();risco();const b=$('#bq');b.focus();b.setSelectionRange(b.value.length,b.value.length)}});
+document.addEventListener('change',e=>{if(e.target.id==='bo'){fOrd=e.target.value;risco()}
+ const up=e.target.dataset&&e.target.dataset.up;if(up){const pf=e.target.value;api('/api/usuarios/'+up,{method:'PATCH',body:JSON.stringify({perfil:pf})}).then(()=>{const u=(USR||[]).find(x=>String(x.id)===up);if(u)u.perfil=pf}).catch(carregarUsuarios)}});
+const pm=$('#pmenu'),pb=$('#pbtn');
+const fechaM=()=>{pm.hidden=true;pb.setAttribute('aria-expanded','false')};
+pb.onclick=e=>{e.stopPropagation();const abre=pm.hidden;pm.hidden=!abre;pb.setAttribute('aria-expanded',String(abre))};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')fechaM()});
+
+const LOGIN_URL='login.html'; 
+function irLogin(m){try{localStorage.removeItem('token')}catch(e){}location.href=LOGIN_URL+(m?'?msg='+m:'')}
+let USR=[];
+const ST={pendente:'Pendente',ativo:'Ativo',recusado:'Recusado',bloqueado:'Bloqueado'};
+async function carregarUsuarios(){try{USR=await api('/api/usuarios')}catch(e){USR=null}usr()}
+const acoesU=u=>({pendente:[['ativo','Aprovar'],['recusado','Recusar']],ativo:[['bloqueado','Bloquear']],bloqueado:[['ativo','Reativar']],recusado:[['ativo','Aprovar']]}[u.status]||[]).map(([s,n])=>`<button class="ask" data-us="${esc(u.id)}|${s}">${n}</button>`).join(' ');
+function usr(){const box=$('#usr');
+ if(!admin()){box.innerHTML=ME?'<div class="empty">Acesso restrito a administradores.</div>':'';return}
+ if(USR===null){box.innerHTML='<div class="empty">Não foi possível carregar os usuários. <button class="ask" id="ru">Tentar novamente</button></div>';return}
+ if(!USR.length){box.innerHTML='<div class="empty">Nenhum usuário cadastrado.</div>';return}
+ const ord={pendente:0,ativo:1,bloqueado:2,recusado:3},pend=USR.filter(u=>u.status==='pendente').length;
+ const L=[...USR].sort((a,b)=>(ord[a.status]??9)-(ord[b.status]??9)||String(a.nome).localeCompare(String(b.nome)));
+ box.innerHTML=`<div class="mt" style="margin:4px 0 12px">${pend?`<b class="dn">${pend} aguardando aprovação</b> · `:''}${USR.length} usuários</div><div class="tw"><table class="tb" style="min-width:780px"><tr><th>Nome</th><th>E-mail</th><th>Cargo</th><th>Perfil</th><th>Status</th><th></th></tr>${L.map(u=>{const eu=ME&&u.email===ME.email;return `<tr><td><b>${esc(u.nome)}</b>${eu?' <span class="mt">(você)</span>':''}</td><td>${esc(u.email)}</td><td>${esc(u.cargo||'–')}</td><td><select data-up="${esc(u.id)}" ${eu?'disabled':''}>${Object.entries(PERF).map(([k,n])=>`<option value="${k}" ${u.perfil===k?'selected':''}>${n}</option>`).join('')}</select></td><td><span class="bd ${u.status==='ativo'?'b-atencao':u.status==='pendente'?'b-alto':'b-saudavel'}">${ST[u.status]||esc(u.status)}</span></td><td style="white-space:nowrap">${eu?'':acoesU(u)}</td></tr>`}).join('')}</table></div>`}
+addEventListener('hashchange',()=>{if(location.hash==='#usuarios'&&admin())carregarUsuarios()});
+
+if(token())carregar();else irLogin('');
+</script>
+</body>
+</html>

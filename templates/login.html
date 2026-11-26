@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entrar · Inteligência Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#00447C;--verm:#D81920;--bg:#FFFFFF;--sf:#F4F6F9;--ln:#E2E7EE;--tx:#14202E;--mu:#5E6B7B;--br:#00447C;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1620;--sf:#16212D;--ln:#263445;--tx:#EAF0F6;--mu:#93A1B3;--br:#5AA6E8;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button{font:inherit;cursor:pointer;color:inherit}
+.hd{position:relative;height:60px;flex:none;background:#005A9E;color:#fff;display:flex;align-items:center;padding:0 20px;justify-content:flex-end;z-index:20}
+.hd::before{content:"";position:absolute;inset:0;background:url("data:image/webp;base64,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") left center/auto 100% no-repeat;-webkit-mask-image:linear-gradient(to bottom,#000 45%,transparent 100%);mask-image:linear-gradient(to bottom,#000 45%,transparent 100%)}
+.hd>*{position:relative}
+#auth{position:fixed;inset:0;z-index:100;background:var(--sf);display:flex;flex-direction:column;overflow-y:auto}
+#auth[hidden]{display:none}
+.ac{flex:1;display:grid;place-items:start center;padding:36px 16px}
+.acard{width:min(440px,100%);background:var(--bg);border:1px solid var(--ln);border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(0,20,50,.12)}
+.acard h2{margin:0 0 4px;font:400 26px/1.2 "Source Serif 4",Georgia,serif}
+.atabs{display:flex;gap:6px;background:var(--sf);border-radius:12px;padding:4px;margin:18px 0 16px}
+.atabs button{flex:1;border:0;background:none;padding:9px;border-radius:9px;font-weight:600;color:var(--mu)}
+.atabs button.on{background:var(--bg);color:var(--br);box-shadow:0 1px 4px rgba(0,20,50,.14)}
+.af{display:flex;flex-direction:column;gap:12px}
+.af[hidden]{display:none}
+.af label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:var(--mu)}
+.af input{border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;font-weight:400}
+.af input:focus{outline:0;border-color:var(--azul)}
+.apri{background:var(--azul);color:#fff;border:0;border-radius:12px;padding:11px;font-weight:600;font-size:15px}
+.apri:disabled{opacity:.6}
+.amsg{border-radius:10px;padding:10px 12px;font-size:14px;margin-bottom:12px}
+.amsg[hidden]{display:none}
+.amsg.err{background:rgba(216,25,32,.1);color:var(--verm)}
+.amsg.ok{background:rgba(0,90,158,.12);color:var(--br)}
+.mt{color:var(--mu);font-size:13px}
+.hd{height:52px;padding:0 9px}
+:root[data-theme="dark"]{--bg:#0E1620;--sf:#16212D;--ln:#263445;--tx:#EAF0F6;--mu:#93A1B3;--br:#5AA6E8;color-scheme:dark}
+</style>
+</head>
+<body>
+<div id="auth">
+ <div class="hd"></div>
+ <div class="ac">
+  <div class="acard">
+   <h2>Inteligência Comercial</h2>
+   <div class="mt">Acesso restrito a usuários autorizados.</div>
+   <div class="atabs"><button type="button" class="on" data-at="login">Entrar</button><button type="button" data-at="cad">Solicitar acesso</button></div>
+   <div id="amsg" class="amsg" role="alert" hidden></div>
+   <div id="a-login" class="af">
+    <label>E-mail<input id="l-email" type="email" autocomplete="username"></label>
+    <label>Senha<input id="l-senha" type="password" autocomplete="current-password"></label>
+    <button type="button" class="apri" id="b-login">Entrar</button>
+   </div>
+   <div id="a-cad" class="af" hidden>
+    <label>Nome completo<input id="c-nome" autocomplete="name"></label>
+    <label>E-mail corporativo<input id="c-email" type="email" autocomplete="email"></label>
+    <label>Cargo / setor<input id="c-cargo"></label>
+    <label>Senha (mínimo de 8 caracteres)<input id="c-senha" type="password" autocomplete="new-password"></label>
+    <label>Confirmar senha<input id="c-conf" type="password" autocomplete="new-password"></label>
+    <button type="button" class="apri" id="b-cad">Solicitar acesso</button>
+    <div class="mt">Seu cadastro será analisado por um administrador. Você só poderá entrar depois de aprovado.</div>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+const API_BASE='';                     
+const APP_URL='inteligencia-comercial.html'; 
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const token=()=>{try{return localStorage.getItem('token')||''}catch(e){return ''}};
+const AVISOS={saiu:['Você saiu do sistema.','ok'],expirou:['Sua sessão expirou. Entre novamente.','err'],nao_autorizado:['Seu acesso não está autorizado.','err']};
+const STATUS_MSG={pendente:'Seu cadastro está aguardando aprovação de um administrador.',recusado:'Seu acesso não foi autorizado. Procure o administrador do sistema.',bloqueado:'Seu acesso está bloqueado. Procure o administrador do sistema.'};
+function msgA(t,tipo){const m=$('#amsg');m.hidden=!t;m.className='amsg '+(tipo||'err');m.textContent=t||''}
+function abaA(k){$$('.atabs button').forEach(b=>b.classList.toggle('on',b.dataset.at===k));$('#a-login').hidden=k!=='login';$('#a-cad').hidden=k!=='cad';msgA('')}
+async function post(path,body){try{const r=await fetch(API_BASE+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});let d=null;try{d=await r.json()}catch(e){}return{ok:r.ok,status:r.status,d}}catch(e){return{ok:false,status:0,d:null}}}
+async function login(){
+ const email=$('#l-email').value.trim(),senha=$('#l-senha').value;
+ if(!email||!senha)return msgA('Informe e-mail e senha.');
+ const b=$('#b-login');b.disabled=true;msgA('');
+ const r=await post('/api/auth/login',{email,senha});b.disabled=false;
+ if(r.ok&&r.d&&r.d.token){try{localStorage.setItem('token',r.d.token)}catch(e){}location.href=APP_URL;return}
+ msgA(r.status===0?'Não foi possível conectar ao servidor.':r.status===401?'E-mail ou senha incorretos.':r.status===403?(STATUS_MSG[r.d&&r.d.status]||'Seu acesso não está autorizado.'):'Não foi possível entrar. Tente novamente.')}
+async function cadastrar(){
+ const v=id=>$(id).value.trim(),nome=v('#c-nome'),email=v('#c-email'),cargo=v('#c-cargo'),senha=$('#c-senha').value,conf=$('#c-conf').value;
+ if(!nome||!email||!cargo||!senha)return msgA('Preencha todos os campos.');
+ if(!/^\S+@\S+\.\S+$/.test(email))return msgA('Informe um e-mail válido.');
+ if(senha.length<8)return msgA('A senha precisa ter pelo menos 8 caracteres.');
+ if(senha!==conf)return msgA('As senhas não conferem.');
+ const b=$('#b-cad');b.disabled=true;msgA('');
+ const r=await post('/api/auth/cadastro',{nome,email,cargo,senha});b.disabled=false;
+ if(r.ok){['#c-nome','#c-email','#c-cargo','#c-senha','#c-conf'].forEach(s=>$(s).value='');abaA('login');$('#l-email').value=email;return msgA('Cadastro enviado! Um administrador precisa aprovar seu acesso antes do primeiro login.','ok')}
+ msgA(r.status===0?'Não foi possível conectar ao servidor.':r.status===409?'Este e-mail já está cadastrado.':'Não foi possível enviar o cadastro. Tente novamente.')}
+$$('.atabs button').forEach(b=>b.onclick=()=>abaA(b.dataset.at));
+$('#b-login').onclick=login;$('#b-cad').onclick=cadastrar;
+$('#auth').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();($('#a-login').hidden?cadastrar:login)()}});
+const aviso=AVISOS[new URLSearchParams(location.search).get('msg')];
+if(aviso)msgA(aviso[0],aviso[1]);
+else if(token())location.href=APP_URL;  
+</script>
+</body>
+</html>
