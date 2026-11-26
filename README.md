@@ -76,4 +76,4 @@ Customer Recovery Support: Analyzes frequently used routes, cargo profiles, seas
 
 ## Security and Access Control
 
-** Microsoft Corporate Authentication: ** Access is restricted exclusively to authorized users through their corporate Microsoft accounts (SSO), ensuring the protection and confidentiality of commercial data.
+Microsoft Corporate Authentication: Access is restricted exclusively to authorized users through their corporate Microsoft accounts (SSO), ensuring the protection and confidentiality of commercial data.
