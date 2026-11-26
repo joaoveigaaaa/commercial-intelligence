@@ -1,4 +1,3 @@
-"""Rodopar -> snapshots diários no banco do sistema."""
 from datetime import date, timedelta
 
 from sqlalchemy import delete, insert, select

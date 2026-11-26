@@ -1,4 +1,3 @@
-"""Leitura do Rodopar. Só SELECT, só na view configurada, agregando no servidor."""
 import re
 from datetime import date
 
@@ -12,14 +11,14 @@ _IDENT = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*$")
 
 
 def _ident(valor: str) -> str:
-    """Valida e coloca colchetes em nomes de tabela/coluna vindos da configuração."""
+   
     if not _IDENT.match(valor):
         raise ValueError(f"Identificador inválido na configuração: {valor!r}")
     return ".".join(f"[{parte}]" for parte in valor.split("."))
 
 
 def buscar_ctes_por_dia(inicio: date) -> pd.DataFrame:
-    """Retorna: cliente_codigo, data, qtd_cte, peso, frete (um registro por cliente/dia)."""
+   
     c = get_settings()
     view, cli, dat = _ident(c.rodopar_view_cte), _ident(c.rodopar_coluna_cliente), _ident(c.rodopar_coluna_data)
     peso, frete = _ident(c.rodopar_coluna_peso), _ident(c.rodopar_coluna_frete)
