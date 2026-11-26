@@ -1,59 +1,79 @@
-# Sistema de Inteligência Comercial Integrado ao Rodopar
+## Commercial Intelligence System Integrated with Rodopar 
 
-Plataforma de **Inteligência Comercial e Business Intelligence (BI)** projetada com o objetivo principal de **facilitar, agilizar e democratizar as análises de dados** para o time comercial. Integrado diretamente ao **ERP Rodopar**, o sistema elimina a necessidade de extrair planilhas manuais ou dominar ferramentas complexas de BI, entregando **diagnósticos prontos, alertas proativos e um assistente de Inteligência Artificial** para apoiar decisões rápidas e estratégicas.
+A Commercial Intelligence and Business Intelligence (BI) platform designed to simplify, accelerate, and democratize data analysis for the commercial team. Directly integrated with the Rodopar ERP, the system eliminates the need for manual spreadsheet exports or complex BI tools, delivering ready-to-use insights, proactive alerts, and an Artificial Intelligence assistant to support faster and more strategic decision-making.
 
-## Objetivo Principal
+## Main Objective
 
-**Facilitar as análises para o time comercial.**
+Simplify data analysis for the commercial team.
 
-Em operações logísticas e de transporte, os vendedores e gestores perdem horas cruzando dados no ERP para entender o comportamento da carteira. Este sistema transforma **dados brutos do Rodopar em respostas imediatas, visualizações intuitivas e recomendações práticas**, permitindo que a equipe comercial invista seu tempo vendendo, retendo clientes e recuperando receitas e não montando planilhas.
+In logistics and transportation operations, sales representatives and managers spend hours cross-referencing ERP data to understand customer portfolio behavior. This system transforms raw Rodopar data into immediate answers, intuitive visualizations, and actionable recommendations, allowing the commercial team to focus on selling, retaining customers, and recovering revenue instead of building spreadsheets.
 
-## Funcionalidades Principais
+## Key Features
 
-### 1. Integração Automática com ERP Rodopar
+## 1. Automatic Integration with Rodopar ERP
 
-- **Coleta Sem Atrito:** Conexão direta com a base de dados do Rodopar para extrair informações de faturamento, emissão de CT-es/NFS-e, rotas, volume de cargas e histórico de clientes.
-- **Dados Prontos para Análise:** Indicadores calculados automaticamente, como **Ticket Médio, Frequência de Embarque, Comparativo de Períodos e Curva ABC**, eliminando o trabalho manual de tratamento de dados.
+Seamless Data Collection: Direct connection to the Rodopar database to retrieve billing information, CT-e/NFS-e issuance, routes, cargo volumes, and customer history.
 
-### 2. Quadro Kanban Comercial Intuitivo
+Analysis-Ready Data: Automatically calculated indicators, such as Average Ticket, Shipping Frequency, Period-over-Period Comparison, and ABC Analysis, eliminating manual data processing.
 
-- **Leitura Visual da Carteira:** Organização dos clientes em colunas baseadas no momento comercial de cada conta:
-  - **Saudáveis / Em Crescimento**
-  - **Atenção / Queda de Volume**
-  - **Risco de Churn**
-  - **Em Tratativa**
-  - **Inativos**
-- **Priorização Automática:** Movimentação dos cards conforme o comportamento de compra no Rodopar, identificando clientes que reduziram a frequência de embarques.
-- **Indicadores no Card:** Resumo de **faturamento atual, variação percentual e data do último embarque**.
+## 2. Intuitive Commercial Kanban Board
 
-### 3. Dashboards Automáticos e Descomplicados
+Visual Customer Portfolio Overview: Organizes customers into columns based on their current commercial status:
 
-- **Análise Instantânea:** Painéis gerenciais gerados automaticamente após a sincronização dos dados.
-- **Filtros Simples e Diretos:** Visualização por **vendedor, filial, período, rota ou cliente específico**, facilitando reuniões de acompanhamento e análises comerciais.
+Healthy / Growing
 
-### 4. Relatórios Periódicos Automatizados
+Attention / Volume Decline
 
-- **Relatório Semanal (A cada 7 dias):** Resumo da semana com **metas, clientes que mais cresceram e contas que apresentaram queda**.
-- **Relatório Mensal (Todo dia 30):** Fechamento consolidado com uma visão completa do desempenho comercial do período.
-- **Pronto para Compartilhar:** Exportação em **PDF/Excel** e envio automático por e-mail para gestores e executivos.
+Churn Risk
 
-### 5. Central de Alertas (Interface Estilo App de Mensagens)
+Under Negotiation / Follow-up
 
-- **Acompanhamento Familiar e Ágil:** Interface inspirada em aplicativos como WhatsApp, onde cada cliente é apresentado como uma conversa.
-- **Alertas Inteligentes:** Notificações automáticas sobre mudanças relevantes no comportamento dos clientes, como:
-  - **"Queda de 30% no faturamento comparado à média dos últimos 3 meses."**
-  - **"Cliente aumentou o volume de cargas nesta semana."**
-- **Contexto Unificado:** Histórico de alertas e anotações do vendedor registrado em uma **linha do tempo**.
+Inactive
 
-### 6. Assistente Comercial com Inteligência Artificial
+Automatic Prioritization: Cards automatically move according to customer purchasing behavior in Rodopar, identifying accounts that have reduced their shipping frequency.
 
-- **Experiência Conversacional:** Página dedicada no estilo Microsoft Copilot, permitindo análises por meio de perguntas em português natural.
-- **Perguntas e Respostas Imediatas:** O vendedor pode consultar informações diretamente da base do Rodopar, por exemplo:
-  - **"Quais clientes da minha carteira caíram este mês?"**
-  - **"Qual cliente teve o maior ticket médio nos últimos 90 dias?"**
-- **Geração de Relatórios por Período:** Solicitação de relatórios personalizados por intervalo de datas, como **"Gere um relatório de desempenho entre 05/04 e 20/04"**.
-- **Apoio na Recuperação de Clientes:** Análise de **rotas mais usadas, perfil de carga, sazonalidade e volume histórico**, sugerindo estratégias e argumentos personalizados para reativar clientes e recuperar faturamento.
+Card Indicators: Displays a summary of current revenue, percentage variation, and last shipment date.
 
-## Segurança e Controle de Acesso
+## 3. Automated and User-Friendly Dashboards
 
-- **Autenticação Corporativa Microsoft:** Acesso restrito exclusivamente a usuários autorizados por meio de login com a **conta Microsoft corporativa da empresa (SSO)**, garantindo a proteção e a confidencialidade dos dados comerciais.
+Instant Analysis: Management dashboards are automatically generated after data synchronization.
+
+Simple and Direct Filters: Data visualization by salesperson, branch, period, route, or specific customer, making follow-up meetings and commercial performance reviews more efficient.
+
+## 4. Automated Periodic Reports
+
+Weekly Report (Every 7 Days): Weekly summary highlighting sales targets, top-growing customers, and accounts experiencing a decline.
+
+Monthly Report (Every 30th of the Month): Consolidated report providing a complete overview of commercial performance throughout the period.
+
+Ready to Share: Export reports to PDF/Excel and automatically deliver them by email to managers and executives.
+
+## 5. Alert Center (Messaging App-Style Interface)
+
+Familiar and Agile Monitoring: An interface inspired by messaging applications such as WhatsApp, where each customer is displayed as a conversation thread.
+
+Smart Alerts: Automatic notifications about significant changes in customer behavior, such as:
+
+"30% revenue decline compared to the average of the last 3 months."
+
+"Customer increased cargo volume this week."
+
+Unified Context: Alert history and salesperson notes recorded in a single timeline.
+
+## 6. AI-Powered Commercial Assistant
+
+Conversational Experience: A dedicated page inspired by Microsoft Copilot, allowing users to perform data analysis through natural language queries.
+
+Immediate Questions and Answers: Sales representatives can retrieve information directly from the Rodopar database, for example:
+
+"Which customers in my portfolio have experienced a decline this month?"
+
+"Which customer had the highest average ticket over the last 90 days?"
+
+Custom Date Range Reports: Generate personalized reports for specific date ranges, such as "Generate a performance report between April 5 and April 20."
+
+Customer Recovery Support: Analyzes frequently used routes, cargo profiles, seasonality, and historical volumes, suggesting personalized strategies and talking points to reactivate customers and recover revenue.
+
+Security and Access Control
+
+Microsoft Corporate Authentication: Access is restricted exclusively to authorized users through their corporate Microsoft accounts (SSO), ensuring the protection and confidentiality of commercial data.
