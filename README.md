@@ -74,6 +74,6 @@ Custom Date Range Reports: Generate personalized reports for specific date range
 
 Customer Recovery Support: Analyzes frequently used routes, cargo profiles, seasonality, and historical volumes, suggesting personalized strategies and talking points to reactivate customers and recover revenue.
 
-Security and Access Control
+## Security and Access Control
 
-Microsoft Corporate Authentication: Access is restricted exclusively to authorized users through their corporate Microsoft accounts (SSO), ensuring the protection and confidentiality of commercial data.
+** Microsoft Corporate Authentication: ** Access is restricted exclusively to authorized users through their corporate Microsoft accounts (SSO), ensuring the protection and confidentiality of commercial data.
