@@ -17,8 +17,7 @@ def engine_sistema() -> Engine:
 
 @lru_cache
 def engine_rodopar() -> Engine:
-    # READ UNCOMMITTED evita bloquear o ERP (equivale a NOLOCK). Use também um login
-    # com permissão apenas de SELECT nas views liberadas.
+   
     return create_engine(
         get_settings().rodopar_db_url, pool_pre_ping=True, isolation_level="READ UNCOMMITTED"
     )

@@ -13,10 +13,10 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-JANELA_RECENTE = 4       # semanas comparadas com a base
-JANELA_TENDENCIA = 12    # semanas usadas na regressão
-MIN_SEMANAS_BASE = 8     # histórico mínimo anterior à janela recente
-MIN_DIAS_ATIVOS = 5      # para estimar o intervalo habitual entre CT-es
+JANELA_RECENTE = 4      
+JANELA_TENDENCIA = 12    
+MIN_SEMANAS_BASE = 8    
+MIN_DIAS_ATIVOS = 5      
 LIMITE_SINAL = 6.0
 PESOS = {"ritmo": 0.5, "recencia": 0.3, "tendencia": 0.2}
 
@@ -79,7 +79,7 @@ def sinal_tendencia(semanal: pd.Series) -> float | None:
         return None
     y = semanal.iloc[-JANELA_TENDENCIA:].to_numpy()
     reg = stats.linregress(np.arange(len(y)), y)
-    if reg.pvalue > 0.10:  # sem tendência consistente = ruído
+    if reg.pvalue > 0.10:  
         return 0.0
     z = reg.slope * (len(y) - 1) / _sigma(y)
     return float(np.clip(z, -LIMITE_SINAL, LIMITE_SINAL))

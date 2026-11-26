@@ -1,4 +1,3 @@
-"""ETL do Rodopar + cálculo do índice. Uso: python -m scripts.rodar_pipeline"""
 from app.analise.executar import calcular_indices
 from app.etl.sincronizar import sincronizar
 
